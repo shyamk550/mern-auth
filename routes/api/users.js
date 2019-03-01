@@ -106,4 +106,17 @@ router.post("/login", (req, res) => {
   });
 });
 
+
+router.get('/getusers',(req, res) =>{
+  User.find({}, function(err, result) {
+    if (err) throw err;
+    const userws = result.map((result)=>{
+      return {id: result._id, name: result.name, email: result.email}
+  })
+
+  res.json(userws)
+
+  });
+})
+
 module.exports = router;

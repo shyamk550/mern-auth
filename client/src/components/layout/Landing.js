@@ -1,20 +1,33 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
-
+import PropTypes from "prop-types";
+import { connect } from "react-redux";
 class Landing extends Component {
+
+  componentDidMount() {
+    // If logged in and user navigates to Login page, should redirect them to dashboard
+    if (this.props.auth.isAuthenticated) {
+      this.props.history.push("/dashboard");
+    }
+  }
+
   render() {
     return (
       <div style={{ height: "75vh" }} className="container valign-wrapper">
         <div className="row">
           <div className="col s12 center-align">
-            <h4>
+            {/* <h4>
               <b>Build</b> a login/auth app with the{" "}
               <span style={{ fontFamily: "monospace" }}>MERN</span> stack from
               scratch
-            </h4>
-            <p className="flow-text grey-text text-darken-1">
-              Create a (minimal) full-stack app with user authentication via
+            </h4> */}
+            {/* <p className="flow-text grey-text text-darken-1">
+             This is a (minimal) full-stack app with user authentication via
               passport and JWTs
+            </p> */}
+            <p className="flow-text grey-text text-darken-1">
+             Welcome to React App.
+             Please click on one of the below
             </p>
             <br />
             <div className="col s6">
@@ -50,4 +63,18 @@ class Landing extends Component {
   }
 }
 
-export default Landing;
+
+Landing.propTypes = {
+  auth: PropTypes.object.isRequired,
+  errors: PropTypes.object.isRequired
+};
+
+const mapStateToProps = state => ({
+  auth: state.auth,
+  errors: state.errors
+});
+
+export default connect(
+  mapStateToProps,
+ 
+)(Landing);
