@@ -3,41 +3,7 @@ import { Link } from "react-router-dom";
 import { logoutUser } from "../../actions/authActions";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
-
-class Checklogin extends Component {
-  render() {
-    if (this.props.isauthenticated) {
-      return (
-        <div>
-          <button
-            style={{ width: "140px"}}
-            onClick={this.onLogoutClick}
-            className="btn btn-large waves-effect waves-light hoverable  accent-3"
-          >
-            Logout
-            </button>
-        </div>
-      )
-    }
-    else {
-      return (
-
-
-        <div >
-          <Link
-            to="/login"
-            style={{
-              width: "140px",
-            }}
-            className="btn btn-large waves-effect waves-light hoverable  accent-3"
-          >
-            Log In
-              </Link>
-        </div>
-      )
-    }
-  }
-}
+import NavLogincheck from "./NavLogincheck";
 
 
 class Navbar extends Component {
@@ -73,7 +39,9 @@ class Navbar extends Component {
             <ul className="navbar-nav mr-auto container ">
               <li><Link to="/" className="col s5    black-text">Home</Link></li>
               
-              <li className="right hide-on-med-and-down"><Checklogin isauthenticated={this.props.auth.isAuthenticated} /></li>
+              <li className="right hide-on-med-and-down">
+              <NavLogincheck />
+              </li>
             </ul>
           </div>
 
