@@ -4,43 +4,39 @@ import { logoutUser } from "../../actions/authActions";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
 
-class Checklogin extends Component{
-  render(){
-  if(this.props.isauthenticated){
-    return(
-      <div>
-      <button
-              style={{
-                width: "140px",
-              
-              }}
-              onClick={this.onLogoutClick}
-              className="btn btn-large waves-effect waves-light hoverable  accent-3"
-            >
-              Logout
+class Checklogin extends Component {
+  render() {
+    if (this.props.isauthenticated) {
+      return (
+        <div>
+          <button
+            style={{ width: "140px"}}
+            onClick={this.onLogoutClick}
+            className="btn btn-large waves-effect waves-light hoverable  accent-3"
+          >
+            Logout
             </button>
-            </div>
-    )
-  }
-  else{
-    return(
-     
+        </div>
+      )
+    }
+    else {
+      return (
 
-<div >
-              <Link
-                to="/login"
-                style={{
-                  width: "140px",
-                
-                }}
-                className="btn btn-large waves-effect waves-light hoverable  accent-3"
-              >
-                Log In
+
+        <div >
+          <Link
+            to="/login"
+            style={{
+              width: "140px",
+            }}
+            className="btn btn-large waves-effect waves-light hoverable  accent-3"
+          >
+            Log In
               </Link>
-            </div>
-)
+        </div>
+      )
+    }
   }
-}
 }
 
 
@@ -71,19 +67,18 @@ class Navbar extends Component {
       // </div>
 
       <div>
-				<nav className="navbar navbar-expand-lg navbar-dark bg-dark header ">
-        <div className="container-fluid">
+        <nav className="navbar navbar-expand-lg navbar-dark bg-dark header ">
+          <div className="container-fluid">
 
-    <ul className="navbar-nav mr-auto container">
-      <li><Link to="/"  className="col s5    black-text">Home</Link></li>
-      <li><Link to="/About"  className="col s5 black-text">About Us</Link></li>
-      <li><Link to="/Contact"  className=" col s5  black-text">Contact Us</Link></li>
-    <li><Checklogin isauthenticated= {this.props.auth.isAuthenticated}/></li>
-    </ul>
-    </div>
+            <ul className="navbar-nav mr-auto container ">
+              <li><Link to="/" className="col s5    black-text">Home</Link></li>
+              
+              <li className="right hide-on-med-and-down"><Checklogin isauthenticated={this.props.auth.isAuthenticated} /></li>
+            </ul>
+          </div>
 
-    </nav>
-  </div>
+        </nav>
+      </div>
     );
   }
 }

@@ -2,6 +2,10 @@ import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
+
+
+const photos =   { src: '/images/img1.jpg' };
+
 class Landing extends Component {
 
   componentDidMount() {
@@ -13,7 +17,9 @@ class Landing extends Component {
 
   render() {
     return (
-      <div style={{ height: "75vh" }} className="container valign-wrapper">
+      <div style={{ 
+        height: "75vh", backgroundImage: `url(${photos.src})`}} 
+        className="container valign-wrapper" >
         <div className="row">
           <div className="col s12 center-align">
             {/* <h4>
