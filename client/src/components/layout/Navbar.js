@@ -15,37 +15,52 @@ class Navbar extends Component {
     const { user } = this.props.auth;
 
     return (
-      // <div className="navbar-fixed">
-      //   <nav className="z-depth-0">
-      //     <div className="nav-wrapper white">
-      //       <Link
-      //         to="/"
-      //         style={{
-      //           fontFamily: "monospace"
-      //         }}
-      //         className="col s5 brand-logo  black-text"
-      //       >
-      //         <i className="material-icons">code</i>
-      //         MERN
-      //       </Link>
-      //     </div>
-      //   </nav>
-      // </div>
-
       <div>
-        <nav className="navbar navbar-expand-lg navbar-dark bg-dark header ">
+        {/* <nav className="navbar navbar-expand-lg navbar-dark bg-dark header ">
           <div className="container-fluid">
+             <Link to="/" className="col s5 black-text brand-logo"><i className="material-icons">home</i>Home </Link>
 
             <ul className="navbar-nav mr-auto container ">
-              <li><Link to="/" className="col s5    black-text">Home</Link></li>
-              
+             <li> <Link to="/contactus" className=""> Contact Us </Link></li>
               <li className="right hide-on-med-and-down">
               <NavLogincheck />
               </li>
             </ul>
           </div>
+        </nav> */}
 
-        </nav>
+
+            <nav>
+                <div className=" black nav-wrapper">
+                <ul id="nav-mobile" className="left hide-on-med-and-down">
+                <li><Link to="/" className=""><i className="material-icons">home</i></Link></li>
+                <li> <Link to="/contactus" className=""> Contact Us </Link></li>
+                <li> <Link to="/aboutus" className=""> About Us </Link></li>
+                </ul>
+                <ul className="right hide-on-med-and-down">
+                  <li><NavLogincheck /></li>
+                  </ul>
+                </div>
+              </nav> 
+{/* 
+ <div className="navbar-fixed">
+    <nav className="black navbar navbar-expand-lg navbar-dark bg-dark header">
+        <div className="container">
+        <Link to="/" className="col s5 white-text brand-logo"><i className="material-icons">home</i>Home </Link>      
+
+
+            <div className="nav-wrapper">
+                <ul className="navbar-nav mr-auto container">
+                <li> <Link to="/contactus" className=""> Contact Us </Link></li>
+                <li> <Link to="/aboutus" className=""> About Us </Link></li>
+              <li className="right hide-on-med-and-down">
+              <NavLogincheck />
+              </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+</div>  */}
       </div>
     );
   }

@@ -18,7 +18,7 @@ class NavLogincheck extends Component {
             <button
               style={{ width: "140px"}}
               onClick={this.onLogoutClick}
-              className="btn btn-large waves-effect waves-light hoverable  accent-3"
+              className="btn btn-large waves-effect waves-light hoverable grey accent-3"
             >
               Logout
               </button>
@@ -35,7 +35,7 @@ class NavLogincheck extends Component {
               style={{
                 width: "140px",
               }}
-              className="btn btn-large waves-effect waves-light hoverable  accent-3"
+              className="btn btn-large waves-effect waves-light hoverable grey accent-3"
             >
               Log In
                 </Link>

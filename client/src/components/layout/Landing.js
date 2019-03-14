@@ -4,7 +4,6 @@ import PropTypes from "prop-types";
 import { connect } from "react-redux";
 
 
-const photos =   { src: '/images/img1.jpg' };
 
 class Landing extends Component {
 
@@ -17,11 +16,17 @@ class Landing extends Component {
 
   render() {
     return (
-      <div style={{ 
-        height: "75vh", backgroundImage: `url(${photos.src})`}} 
+      <div 
         className="container valign-wrapper" >
-        <div className="row">
-          <div className="col s12 center-align">
+        <div className="row" style={{ 
+           "paddingTop": "50px",
+              "display":"flex",
+            "justify-content": "center",
+            "align-items": "center"
+          }} >
+          <div 
+         
+          className="col s12 center-align">
             {/* <h4>
               <b>Build</b> a login/auth app with the{" "}
               <span style={{ fontFamily: "monospace" }}>MERN</span> stack from
@@ -31,8 +36,9 @@ class Landing extends Component {
              This is a (minimal) full-stack app with user authentication via
               passport and JWTs
             </p> */}
-            <p className="flow-text grey-text text-darken-1">
-             Welcome to React App.
+            <p  
+          className="flow-text grey-text text-darken-1">
+             Welcome! <br/>
              Please click on one of the below
             </p>
             <br />
@@ -57,7 +63,7 @@ class Landing extends Component {
                   borderRadius: "3px",
                   letterSpacing: "1.5px"
                 }}
-                className="btn btn-large btn-flat waves-effect white black-text"
+                className="btn btn-large waves-effect waves-light hoverable blue accent-3"
               >
                 Log In
               </Link>

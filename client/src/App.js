@@ -15,6 +15,9 @@ import PrivateRoute from "./components/private-route/PrivateRoute";
 import Dashboard from "./components/dashboard/Dashboard";
 
 import "./App.css";
+import ContactUs from "./components/misc/ContactUs";
+import AboutUs from "./components/misc/Aboutus";
+const photos =   { src: '/images/img1.jpg' };
 
 // Check for token to keep user logged in
 if (localStorage.jwtToken) {
@@ -40,10 +43,17 @@ class App extends Component {
     return (
       <Provider store={store}>
         <Router>
-          <div className="App">
+          <div 
+          style={{ 
+            // backgroundImage: `url(${photos.src})`
+          }} 
+          className="App">
             <Navbar />
             <Route exact path="/" component={Landing} />
             <Route exact path="/register" component={Register} />
+            <Route exact path="/contactus" component={ContactUs} />
+            <Route exact path="/aboutus" component={AboutUs} />
+
             <Route exact path="/login" component={Login} />
             <Switch>
               <PrivateRoute exact path="/dashboard" component={Dashboard} />
