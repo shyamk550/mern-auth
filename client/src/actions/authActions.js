@@ -73,7 +73,15 @@ export const logoutUser = () => dispatch => {
 export const updateUser = (userData, history) => dispatch => {
   axios
     .post("/api/users/updateuser", userData)
-    .then(res => history.push("/accountdetails"))
+    .then(res => {
+      const { token } = res.data;
+      localStorage.setItem("jwtToken", token);
+      // Set token to Auth header
+      setAuthToken(token);
+      const decoded = jwt_decode(token);
+
+      dispatch(setCurrentUser(decoded));
+    })
     .catch(err =>
       dispatch({
         type: GET_ERRORS,

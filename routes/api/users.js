@@ -121,8 +121,34 @@ router.post('/updateuser', (req, res) =>{
       User.findOneAndUpdate(id , {$set: details}, 
         function (err, user) {
           if (err) return next(err);
-          res.send(user+' udpated.');
-                //
+          //    
+             // User matched
+        // Create JWT Payload
+        const payload = {
+          id: user.id,
+          name: user.name,
+          email: user.email,
+          isAdmin: user.isAdmin
+        };
+
+        console.log(payload);
+        // Sign token
+        jwt.sign(
+          payload,
+          keys.secretOrKey,
+          {
+            expiresIn: 31556926 // 1 year in seconds
+          },
+          (err, token) => {
+            res.json({
+              success: true,
+              token: "Bearer " + token
+            });
+          }
+        );
+          
+          
+          //
 
       
       
