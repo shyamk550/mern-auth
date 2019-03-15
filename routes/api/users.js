@@ -127,6 +127,7 @@ router.post('/updateuser', (req, res) =>{
   });
 
 router.get('/getusers',(req, res) =>{
+  console.log(req.body.token);
   User.find({}, function(err, result) {
     if (err) throw err;
     const userws = result.map((result)=>{
