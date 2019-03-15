@@ -112,17 +112,21 @@ router.post("/login", (req, res) => {
 
 
 router.post('/updateuser', (req, res) =>{
-  console.log(req.body.token);
+  console.log(">>>>>>>>>>>>"+req.body.name +">>>>>>>>>>>>"+req.body.email+"  "+req.body.id);
   var details = {
           name: req.body.name,
           email: req.body.email,
         };
       var id ={_id: req.body.id};
       User.findOneAndUpdate(id , {$set: details}, 
-        function (err, result) {
+        function (err, user) {
           if (err) return next(err);
-          res.send(result+' udpated.');
-      });
+          res.send(user+' udpated.');
+                //
+
+      
+      
+        });
       
   });
 
