@@ -8,27 +8,11 @@ import '../../App.css';
 class Dashboard extends Component {
   constructor(props) {
     super(props);
-    this.state = { file: '', imagePreviewUrl: ''};
   }
   
   _handleSubmit = (e) => {
     e.preventDefault();
     console.log(e);
-  }
-  
-  _handleImageChange = (e) => {
-    e.preventDefault();
-    let reader = new FileReader();
-    let file = e.target.files[0];
-    
-    reader.onloadend = () => {
-      this.setState({
-        file: file,
-        imagePreviewUrl: reader.result
-      })
-    }
-    
-    reader.readAsDataURL(file);
   }
   
   onLogoutClick = e => {
@@ -39,13 +23,7 @@ class Dashboard extends Component {
 
   render() {
     const { user } = this.props.auth;
-    let { imagePreviewUrl } = this.state;
-    let $imagePreview = null;
-    if (imagePreviewUrl) {
-      $imagePreview = (<img src={imagePreviewUrl} />);
-    } else {
-      $imagePreview = (<div className='previewText'>Please select an image to preview</div>)
-    }
+   
     if(user.isAdmin){
     return (
       <div style={{ height: "75vh" }} className="container valign-wrapper">

@@ -4,6 +4,7 @@ import { logoutUser } from "../../actions/authActions";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import NavLogincheck from "./NavLogincheck";
+import UserAccount from "../account/UserAccount";
 
 
 class Navbar extends Component {
@@ -38,6 +39,7 @@ class Navbar extends Component {
                 <li> <Link to="/aboutus" className=""> About Us </Link></li>
                 </ul>
                 <ul className="right hide-on-med-and-down">
+                  <li><UserAccount/> </li>
                   <li><NavLogincheck /></li>
                   </ul>
                 </div>

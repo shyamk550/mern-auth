@@ -17,6 +17,8 @@ import Dashboard from "./components/dashboard/Dashboard";
 import "./App.css";
 import ContactUs from "./components/misc/ContactUs";
 import AboutUs from "./components/misc/Aboutus";
+import UserAccount from "./components/account/UserAccount";
+import AccountDetails from "./components/account/AccountDetails";
 const photos =   { src: '/images/img1.jpg' };
 
 // Check for token to keep user logged in
@@ -53,10 +55,13 @@ class App extends Component {
             <Route exact path="/register" component={Register} />
             <Route exact path="/contactus" component={ContactUs} />
             <Route exact path="/aboutus" component={AboutUs} />
+            <Route exact path="/useraccount" component={UserAccount} />
 
             <Route exact path="/login" component={Login} />
             <Switch>
               <PrivateRoute exact path="/dashboard" component={Dashboard} />
+              <PrivateRoute exact path="/accountdetails" component={AccountDetails} />
+
             </Switch>
           </div>
         </Router>

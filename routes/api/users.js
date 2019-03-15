@@ -4,6 +4,7 @@ const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
 const keys = require("../../config/keys");
 const passport = require("passport");
+var mongoose = require('mongoose');
 
 // Load input validation
 const validateRegisterInput = require("../../validation/register");
@@ -81,9 +82,11 @@ router.post("/login", (req, res) => {
         const payload = {
           id: user.id,
           name: user.name,
+          email: user.email,
           isAdmin: user.isAdmin
         };
 
+        console.log(payload);
         // Sign token
         jwt.sign(
           payload,
@@ -107,6 +110,21 @@ router.post("/login", (req, res) => {
   });
 });
 
+
+router.post('/updateuser', (req, res) =>{
+  console.log(req.body.token);
+  var details = {
+          name: req.body.name,
+          email: req.body.email,
+        };
+      var id ={_id: req.body.id};
+      User.findOneAndUpdate(id , {$set: details}, 
+        function (err, result) {
+          if (err) return next(err);
+          res.send(result+' udpated.');
+      });
+      
+  });
 
 router.get('/getusers',(req, res) =>{
   User.find({}, function(err, result) {
