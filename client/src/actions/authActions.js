@@ -69,7 +69,7 @@ export const logoutUser = () => dispatch => {
 
 
 
-// Register User
+// update User
 export const updateUser = (userData, history) => dispatch => {
   axios
     .post("/api/users/updateuser", userData)

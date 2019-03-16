@@ -157,7 +157,6 @@ router.post('/updateuser', (req, res) =>{
   });
 
 router.get('/getusers',(req, res) =>{
-  console.log(req.body.token);
   User.find({}, function(err, result) {
     if (err) throw err;
     const userws = result.map((result)=>{
@@ -167,6 +166,19 @@ router.get('/getusers',(req, res) =>{
   res.json(userws)
 
   });
+})
+
+
+
+router.post('/getUsersByName',(req, res) =>{
+  User.findOne({ name: req.body.name })
+    .then(user => {
+      if (!user) {
+        return res.status(404).json({ usernotfound: "user not found" });
+      }
+      res.json(user)
+  });
+
 })
 
 module.exports = router;

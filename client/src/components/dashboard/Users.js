@@ -6,7 +6,11 @@ export default class Users extends React.Component{
       
       this.state = {
         users: [],
+        search:"",
+        userSearch:""
       }
+
+      this.onChange = this.onChange.bind(this)
     }
     
     componentDidMount(){
@@ -16,12 +20,27 @@ export default class Users extends React.Component{
 
        
     }
+
+    onChange = e => {
+      this.setState({ search: e.target.value.substr(0,20)});
+    };
     
     render(){
+
+      let users = this.state.users.filter(
+          (user) =>{
+            return user.name.toLowerCase().indexOf(this.state.search) !== -1;
+          }
+      );
       
       return(
-        <div className="table-responsive">
+        <div className="row">
+     
+         
+        <div className="col s5 pull-s7 table-responsive">
         <h4> Here are the list of users registered</h4>
+          <h5>Please use the below text box to filter using name</h5>
+        <input type="text" value={this.state.search} onChange={this.onChange}/>
           <table className="t01" >
             <thead>
               <tr>
@@ -32,7 +51,7 @@ export default class Users extends React.Component{
               </tr>
             </thead>
             <tbody>
-              {this.state.users.map((user)=>(
+              {users.map((user)=>(
                 <tr  key={user.id}>
                   <th scope="row"></th>
                   <td> {user.name} </td>
@@ -42,6 +61,17 @@ export default class Users extends React.Component{
               ))}
             </tbody>
           </table>
+        </div>
+
+        <div class="col s7 push-s5 ">  <form onSubmit={this.onSubmit}>
+                      <div className="form-group">
+                          <label>Name:  </label>
+                          <input  id="name" className="form-control" 
+                          onChange={this.onChange} value={this.state.userSearch}/>
+                      <input type="submit"  value="Search"   className="btn btn-primary"/>
+                      </div>
+                  </form>
+                  </div> 
         </div>
       )
     }
