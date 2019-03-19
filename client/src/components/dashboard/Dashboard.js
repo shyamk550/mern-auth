@@ -3,6 +3,8 @@ import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { logoutUser } from "../../actions/authActions";
 import Users from './Users';
+import MoviesList from './MoviesList'
+
 import '../../App.css';
 
 class Dashboard extends Component {
@@ -28,14 +30,8 @@ class Dashboard extends Component {
     return (
       <div style={{ height: "75vh" }} className="container valign-wrapper">
         <div className="row">
-          <div className="landing-copy col s12 center-align">
-            <h4>
-              <b>Hey there,</b> {user.name.split(" ")[0]}
-             
-            </h4>
-           
+          <div className="landing-copy col s12 left-align">
             <Users/>
-      
           </div>
         </div>
        
@@ -45,14 +41,16 @@ class Dashboard extends Component {
           }
           else{
             return(
-              <div style={{ height: "75vh" }} className="container valign-wrapper">
+              <div  className="container valign-wrapper">
               <div className="row">
-                <div className="landing-copy col s12 center-align">
-                  <h4>
+                <div className="landing-copy col s12 left-align">
+                  {/* <h5>
                     <b>Hey there,</b> {user.name.split(" ")[0]}
-                    <p>Stay tuned... something is coming!!</p>
-                    
-               </h4>
+                                       
+               </h5> */}
+
+               <MoviesList/>
+
               {/* <div className="myImage">
                      </div>                  */}
                </div>

@@ -4,4 +4,7 @@ export const SET_CURRENT_USER = "SET_CURRENT_USER";
 
 export const UPDATE_USER = "UPDATE_USER";
 
-export const SEARCH_USER = "SEARCH_USER"
+export const SEARCH_USER = "SEARCH_USER";
+
+export const GET_ALL_MOVIES = "GET_ALL_MOVIES";
+export const ADD_NEW_MOVIE = "ADD_NEW_MOVIE";

@@ -1,5 +1,4 @@
 import React from 'react'
-
 export default class Users extends React.Component{
     constructor(){
       super();
@@ -34,10 +33,9 @@ export default class Users extends React.Component{
       );
       
       return(
-        <div className="row">
      
          
-        {/* <div className="col s6 table-responsive">
+        <div className="col table-responsive">
         <h4> Here are the list of users registered</h4>
           <h5>Please use the below text box to filter using name</h5>
         <input type="text" value={this.state.search} onChange={this.onChange}/>
@@ -61,17 +59,15 @@ export default class Users extends React.Component{
               ))}
             </tbody>
           </table>
-        </div> */}
-
-        <div class="col s6 ">  <form onSubmit={this.onSubmit}>
+        {/* <div class="col s6 ">  <form onSubmit={this.onSubmit}>
                       <div className="form-group">
                           <label>Name:  </label>
                           <input  id="name" className="form-control" 
-                          onChange={this.onChange} value={this.state.userSearch}/>
+                          onChange={this.onChange} />
                       <input type="submit"  value="Search"   className="btn btn-primary"/>
                       </div>
                   </form>
-                  </div> 
+                  </div>  */}
         </div>
       )
     }
