@@ -118,11 +118,14 @@ router.post('/updateuser', (req, res) =>{
           email: req.body.email,
         };
       var id ={_id: req.body.id};
-      User.findOneAndUpdate(id , {$set: details}, 
+      User.findOneAndUpdate(id , {$set: details}, {new: true},
         function (err, user) {
           if (err) return next(err);
           //    
              // User matched
+
+
+
         // Create JWT Payload
         const payload = {
           id: user.id,

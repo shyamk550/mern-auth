@@ -37,7 +37,7 @@ export default class Users extends React.Component{
         <div className="row">
      
          
-        <div className="col s5 pull-s7 table-responsive">
+        {/* <div className="col s6 table-responsive">
         <h4> Here are the list of users registered</h4>
           <h5>Please use the below text box to filter using name</h5>
         <input type="text" value={this.state.search} onChange={this.onChange}/>
@@ -61,9 +61,9 @@ export default class Users extends React.Component{
               ))}
             </tbody>
           </table>
-        </div>
+        </div> */}
 
-        <div class="col s7 push-s5 ">  <form onSubmit={this.onSubmit}>
+        <div class="col s6 ">  <form onSubmit={this.onSubmit}>
                       <div className="form-group">
                           <label>Name:  </label>
                           <input  id="name" className="form-control" 
