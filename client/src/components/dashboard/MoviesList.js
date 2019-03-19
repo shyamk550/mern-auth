@@ -13,7 +13,7 @@ class MoviesList extends React.Component {
         <div key={movies.id}>
             <h4>{movies.name}</h4> 
             <span  style={{ color: "red"}}>{movies.genre}</span>
-            <p>Plot: {movies.story}</p>
+            <p><b>Plot: </b> {movies.story}</p>
         </div>
     ))
         return (
