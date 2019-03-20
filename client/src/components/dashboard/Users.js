@@ -34,7 +34,8 @@ export default class Users extends React.Component{
       
       return(
      
-         
+        <div style={{ paddingTop: 10 }} className="container valign-wrapper">
+        <div className="row">
         <div className="col table-responsive">
         <h4> Here are the list of users registered</h4>
           <h5>Please use the below text box to filter using name</h5>
@@ -69,6 +70,8 @@ export default class Users extends React.Component{
                   </form>
                   </div>  */}
         </div>
+        </div>
+            </div>
       )
     }
   }

@@ -12,13 +12,18 @@ class MoviesList extends React.Component {
 
         <div key={movies.id}>
             <h4>{movies.name}</h4> 
-            <span  style={{ color: "red"}}>{movies.genre}</span>
-            <p><b>Plot: </b> {movies.story}</p>
+            Genre:  <span  style={{ color: "red"}}> {movies.genre}</span><br/>
+            Cast:   <span  style={{ color: "purple"}}> {movies.cast}</span>
+            <p><b>Summary: </b> {movies.story}</p>
         </div>
     ))
         return (
-            <>{movieItems}</>
-               
+            <div style={{ paddingTop: 10 }} className="container valign-wrapper">
+        <div className="row">
+        <h5>Below are the list of movies</h5>
+            {movieItems}
+            </div>
+            </div>
         )
     }
 }

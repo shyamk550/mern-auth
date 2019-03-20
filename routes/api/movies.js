@@ -24,18 +24,32 @@ router.get('/getmovies',(req, res) =>{
 
   });
 })
+  
+router.get('/getMovieByName', (req, res) =>{
+  
+  if(req.body.name) movieName = req.body.name;
+      Movies.findOne({ name: movieName }, function(err, movieData){
+          if (err) throw err;
+          const payload = {
+          name: movieData.name,
+          genre: movieData.genre,
+          rating: movieData.rating,
+          story: movieData.story,
+          cast: movieData.cast,
+          releasedate: movieData.releasedate,
+        };
+        res.json(payload);
+      })
+  });
 
 
 
 router.post("/addmovie", (req, res) => {
-
   console.log(req.body.name);
   const { errors, isValid } = validateMoviesInput(req.body);
-
   if (!isValid) {
     return res.status(400).json(errors);
   }
-
   Movies.findOne({ name: req.body.name }).then(movie => {
     console.log(movie);
     if (movie) {
@@ -53,10 +67,35 @@ router.post("/addmovie", (req, res) => {
             .save()
             .then(movie => res.json(movie))
             .catch(err => console.log(err));
-       
-     
     }
   });
 });
+
+
+router.post('/editmovie', (req, res) =>{
+  var MovieData = {}
+  if(req.body.name) MovieData.name = req.body.name;
+  if(req.body.genre) MovieData.genre = req.body.genre;
+  if(req.body.rating) MovieData.rating =  req.body.rating;
+  if(req.body.story) MovieData.story = req.body.story;
+  if(req.body.cast) MovieData.cast = req.body.cast;
+  if(req.body.releasedate) MovieData.releasedate = req.body.releasedate;
+      var id ={_id: req.body.id};
+      Movies.findOneAndUpdate(id, {$set: MovieData}, {new: true},
+        function(err, updatedData){
+        if (err) return next(err);
+        const payload = {
+          name: updatedData.name,
+          genre: updatedData.genre,
+          rating: updatedData.rating,
+          story: updatedData.story,
+          cast: updatedData.cast,
+          releasedate: updatedData.releasedate,
+        };
+        res.json(payload);
+      })
+  });
+
+
 
 module.exports = router;

@@ -112,7 +112,6 @@ router.post("/login", (req, res) => {
 
 
 router.post('/updateuser', (req, res) =>{
-  console.log(">>>>>>>>>>>>"+req.body.name +">>>>>>>>>>>>"+req.body.email+"  "+req.body.id);
   var details = {
           name: req.body.name,
           email: req.body.email,
@@ -121,19 +120,13 @@ router.post('/updateuser', (req, res) =>{
       User.findOneAndUpdate(id , {$set: details}, {new: true},
         function (err, user) {
           if (err) return next(err);
-          //    
-             // User matched
-
-
-
-        // Create JWT Payload
+      // Create JWT Payload
         const payload = {
           id: user.id,
           name: user.name,
           email: user.email,
           isAdmin: user.isAdmin
         };
-
         console.log(payload);
         // Sign token
         jwt.sign(
@@ -149,14 +142,7 @@ router.post('/updateuser', (req, res) =>{
             });
           }
         );
-          
-          
-          //
-
-      
-      
-        });
-      
+       });
   });
 
 router.get('/getusers',(req, res) =>{
