@@ -31,10 +31,9 @@ class Dashboard extends Component {
     return (
       <div style={{ height: "75vh" }} className="container valign-wrapper">
         <div className="row">
-          <div className="landing-copy col s12 left-align">
           <Link to="/addmovie" className="waves-effect waves-light btn center">Add Movie</Link>
-            <Users/>
-          </div>
+            {/* <Users/> */}
+             <MoviesList/>
         </div>
        
        
