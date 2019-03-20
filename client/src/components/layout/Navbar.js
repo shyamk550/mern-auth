@@ -16,7 +16,7 @@ class Navbar extends Component {
     const { user } = this.props.auth;
 
     return (
-      <div>
+      <div className="navbar-fixed">
         {/* <nav className="navbar navbar-expand-lg navbar-dark bg-dark header ">
           <div className="container-fluid">
              <Link to="/" className="col s5 black-text brand-logo"><i className="material-icons">home</i>Home </Link>
@@ -32,7 +32,7 @@ class Navbar extends Component {
 
 
             <nav>
-                <div className=" black nav-wrapper">
+                <div className=" black nav-wrapper fixed">
                 <ul id="nav-mobile" className="left hide-on-med-and-down">
                 <li><Link to="/" className=""><i className="material-icons">home</i></Link></li>
                 <li> <Link to="/contactus" className=""> Contact Us </Link></li>

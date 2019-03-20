@@ -20,6 +20,7 @@ import AboutUs from "./components/misc/Aboutus";
 import UserAccount from "./components/account/UserAccount";
 import AccountDetails from "./components/account/AccountDetails";
 import AddMovie from "./components/movies/AddMovie";
+import AdminRoute from "./components/private-route/AdminRoute";
 const photos =   { src: '/images/img1.jpg' };
 
 // Check for token to keep user logged in
@@ -62,8 +63,7 @@ class App extends Component {
             <Switch>
               <PrivateRoute exact path="/dashboard" component={Dashboard} />
               <PrivateRoute exact path="/accountdetails" component={AccountDetails} />
-              <PrivateRoute exact path="/addmovie" component={AddMovie} />
-
+              <AdminRoute exact path="/addmovie" component={AddMovie} />
             </Switch>
           </div>
         </Router>

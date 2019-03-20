@@ -63,7 +63,7 @@ class AddMovie extends Component {
                     <div className="landing-copy col s12 center-align">
                         <h5 align="center">Add a New Movie</h5>
 
-                        <div style={{ marginTop: 0 }}>
+                        <div style={{ marginTop: 0 , width: 450}}>
                             <form className="row" onSubmit={this.onSubmit}>
                                 <div className="input-field col s12">
                                     <label for="name">Movie Name</label>
@@ -74,7 +74,7 @@ class AddMovie extends Component {
                                             invalid: errors.name
                                         })}
                                         onChange={this.onChange} />
-                                    <span className="red-text">
+                                    <span className="red-text left">
                                         {errors.name}
                                     </span>
                                 </div>
@@ -87,7 +87,7 @@ class AddMovie extends Component {
                                             invalid: errors.genre
                                         })}
                                         onChange={this.onChange} />
-                                    <span className="red-text">
+                                    <span className="red-text left">
                                         {errors.genre}
                                     </span>
                                 </div>
@@ -100,7 +100,7 @@ class AddMovie extends Component {
                                             invalid: errors.rating
                                         })}
                                         onChange={this.onChange} />
-                                    <span className="red-text">
+                                    <span className="red-text left">
                                         {errors.rating}
                                     </span>
                                 </div>
@@ -113,7 +113,7 @@ class AddMovie extends Component {
                                             invalid: errors.story
                                         })}
                                         onChange={this.onChange} />
-                                        <span className="red-text">
+                                        <span className="red-text left">
                                         {errors.story}
                                     </span>
                                 </div>
@@ -126,7 +126,7 @@ class AddMovie extends Component {
                                             invalid: errors.cast
                                         })}
                                         onChange={this.onChange} />
-                                        <span className="red-text">
+                                        <span className="red-text left">
                                         {errors.cast}
                                     </span>
                                 </div>
@@ -139,7 +139,7 @@ class AddMovie extends Component {
                                             invalid: errors.releasedate
                                         })}
                                         onChange={this.onChange} />
-                                         <span className="red-text">
+                                         <span className="red-text left">
                                         {errors.releasedate}
                                     </span>
                                 </div>

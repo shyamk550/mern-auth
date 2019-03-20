@@ -29,7 +29,7 @@ class Dashboard extends Component {
    
     if(user.isAdmin){
     return (
-      <div style={{ height: "75vh" }} className="container valign-wrapper">
+      <div style={{ paddingTop: 50 }} className="container valign-wrapper">
         <div className="row">
           <Link to="/addmovie" className="waves-effect waves-light btn center">Add Movie</Link>
             {/* <Users/> */}
