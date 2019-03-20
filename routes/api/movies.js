@@ -29,6 +29,7 @@ router.get('/getmovies',(req, res) =>{
 
 router.post("/addmovie", (req, res) => {
 
+  console.log(req.body.name);
   const { errors, isValid } = validateMoviesInput(req.body);
 
   if (!isValid) {

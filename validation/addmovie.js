@@ -31,13 +31,13 @@ module.exports = function validateRegisterInput(data) {
   }
 
   if (Validator.isEmpty(data.story)) {
-    errors.story = "Rating is required";
+    errors.story = "Story is required";
   }
   if (Validator.isEmpty(data.cast)) {
-    errors.cast = "Rating is required";
+    errors.cast = "Cast details are required";
   }
   if (Validator.isEmpty(data.releasedate)) {
-    errors.releasedate = "Rating is required";
+    errors.releasedate = "Release date is required";
   }
 
   return {
