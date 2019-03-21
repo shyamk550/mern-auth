@@ -56,14 +56,14 @@ console.log("movies fetching....")
 export const getMoviebyName = movieData => dispatch => {
   console.log("movies fetching....")
           fetch("/api/movies/getMovieByName/"+movieData)
-          .then(res =>{
-            const movie = res.data 
-         dispatch({
+          .then(res =>res.json())
+          .then(movie => {
+            dispatch({
               type: GET_MOVIE_BY_NAME, 
               payload: movie
           });
           })
-          .catch(err =>
+           .catch(err =>
             dispatch({
               type: GET_ERRORS,
               payload: err.response.data

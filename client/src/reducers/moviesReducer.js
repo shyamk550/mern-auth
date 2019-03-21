@@ -20,7 +20,7 @@ export default function(state = initialState, action) {
       case GET_MOVIE_BY_NAME:
       return{
         ...state,
-        movies: action.payload
+        movie: action.payload
       }
     default:
       return state;

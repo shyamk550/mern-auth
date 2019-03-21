@@ -30,6 +30,8 @@ class EditMovie extends Component {
     }
 
     componentWillReceiveProps(nextProps) {
+        console.log("nextProps");
+
 
         if (nextProps.errors) {
             this.setState({
@@ -38,6 +40,10 @@ class EditMovie extends Component {
         }
     }
     render() {
+        console.log(">>>>>>>>>>>>>>>>>>>>>");
+
+        console.log(this.props);
+
         const { errors } = this.state;
 
         return (
@@ -77,10 +83,12 @@ class EditMovie extends Component {
 
 EditMovie.propTypes = {
     getMoviebyName: PropTypes.object.isRequired,
-    errors: PropTypes.object.isRequired
+    errors: PropTypes.object.isRequired,
+    movie: PropTypes.object.isRequired
 
 };
 const mapStateToProps = state => ({
+    movie: state.movie,
     errors: state.errors
 });
 
