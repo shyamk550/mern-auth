@@ -25,7 +25,14 @@ class EditMovie extends Component {
 
     onSubmit(e) {
         e.preventDefault();
-        this.props.getMoviebyName( this.getMovieName.value);
+
+        
+        const movieData = {
+            name: this.getMovieName.value,
+            
+        }
+
+              this.props.getMoviebyName( this.getMovieName.value);
 
     }
 
@@ -56,6 +63,9 @@ class EditMovie extends Component {
         const {movie}= this.props.movie;
 
         const { errors } = this.state;
+        console.log("++++++++++++++++++++++");
+
+        console.log(errors)
         console.log(movie);
         return (
             <div className="container valign-wrapper">
