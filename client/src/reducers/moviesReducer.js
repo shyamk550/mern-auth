@@ -18,6 +18,8 @@ export default function(state = initialState, action) {
         movies: action.payload
       }
       case GET_MOVIE_BY_NAME:
+      console.log("<<<<<<<<<<<<<<<<<<<<<");
+      console.log(action.payload)
       return{
         ...state,
         movie: action.payload

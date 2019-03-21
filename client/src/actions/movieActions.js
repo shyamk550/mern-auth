@@ -58,6 +58,7 @@ export const getMoviebyName = movieData => dispatch => {
           fetch("/api/movies/getMovieByName/"+movieData)
           .then(res =>res.json())
           .then(movie => {
+            console.log(movie);
             dispatch({
               type: GET_MOVIE_BY_NAME, 
               payload: movie

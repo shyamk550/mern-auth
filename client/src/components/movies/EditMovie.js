@@ -30,9 +30,6 @@ class EditMovie extends Component {
     }
 
     componentWillReceiveProps(nextProps) {
-        console.log("nextProps");
-
-
         if (nextProps.errors) {
             this.setState({
                 errors: nextProps.errors
@@ -41,11 +38,25 @@ class EditMovie extends Component {
     }
     render() {
         console.log(">>>>>>>>>>>>>>>>>>>>>");
-
         console.log(this.props);
 
-        const { errors } = this.state;
+        const allmovies = Array.from(this.props);
+        console.log(allmovies)
+    //     const movieItems = allmovies.map(movies => (
 
+    //     <div key={movies.id}>
+    //         <h4>{movies.name}</h4> 
+    //         Genre:  <span  style={{ color: "red"}}> {movies.genre}</span><br/>
+    //         Cast:   <span  style={{ color: "purple"}}> {movies.cast}</span>
+    //         <p><b>Summary: </b> {movies.story}</p>
+    //     </div>
+    // ))
+    
+
+        const {movie}= this.props.movie;
+
+        const { errors } = this.state;
+        console.log(movie);
         return (
             <div className="container valign-wrapper">
                 <div className="row">
@@ -73,6 +84,10 @@ class EditMovie extends Component {
                                 </div>
                             </form>
                         </div>
+
+                        <div>
+                            {movie}
+                        </div>
                     </div>
                 </div>
 
@@ -88,7 +103,7 @@ EditMovie.propTypes = {
 
 };
 const mapStateToProps = state => ({
-    movie: state.movie,
+    movie: state.movieslist.movie,
     errors: state.errors
 });
 
