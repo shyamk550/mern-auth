@@ -8,3 +8,5 @@ export const SEARCH_USER = "SEARCH_USER";
 
 export const GET_ALL_MOVIES = "GET_ALL_MOVIES";
 export const ADD_NEW_MOVIE = "ADD_NEW_MOVIE";
+
+export const GET_MOVIE_BY_NAME = "GET_MOVIE_BY_NAME";

@@ -25,11 +25,40 @@ router.get('/getmovies',(req, res) =>{
   });
 })
   
-router.get('/getMovieByName', (req, res) =>{
+// router.get('/getMovieByName', (req, res) =>{
+//   var movie = req.body;
+//   console.log(">>>>>>>>>>>>");
+//   console.log(req.params);
+//   console.log('req.body: ' + JSON.stringify(movie));
+//  // if(req.body.name) movieName = req.body.name;
+//       Movies.findOne({ name: req.body.name }, function(err, movieData){
+//           if (err) throw err;
+//           const payload = {
+//           name: movieData.name,
+//           genre: movieData.genre,
+//           rating: movieData.rating,
+//           story: movieData.story,
+//           cast: movieData.cast,
+//           releasedate: movieData.releasedate,
+//         };
+//         res.json(payload);
+//       })
+//   });
+
+
+
   
-  if(req.body.name) movieName = req.body.name;
+router.get('/getMovieByName/:name', (req, res) =>{
+
+console.log( req.params);
+
+var movieName =  req.params.name;
       Movies.findOne({ name: movieName }, function(err, movieData){
           if (err) throw err;
+          if(!movieData){
+            return res.status(400).json({ name: "Movie Not found" });
+          }
+          console.log(movieData)
           const payload = {
           name: movieData.name,
           genre: movieData.genre,
@@ -41,7 +70,6 @@ router.get('/getMovieByName', (req, res) =>{
         res.json(payload);
       })
   });
-
 
 
 router.post("/addmovie", (req, res) => {

@@ -1,6 +1,6 @@
 import axios from "axios";
 
-import {GET_ALL_MOVIES , ADD_NEW_MOVIE, GET_ERRORS} from "./types";
+import {GET_ALL_MOVIES , ADD_NEW_MOVIE, GET_ERRORS, GET_MOVIE_BY_NAME} from "./types";
 
 // export const getAllMovies = userData => dispatch => {
 //   axios
@@ -50,3 +50,26 @@ console.log("movies fetching....")
     
 
 }
+
+
+
+export const getMoviebyName = movieData => dispatch => {
+  console.log("movies fetching....")
+          fetch("/api/movies/getMovieByName/"+movieData)
+          .then(res =>{
+            const movie = res.data 
+         dispatch({
+              type: GET_MOVIE_BY_NAME, 
+              payload: movie
+          });
+          })
+          .catch(err =>
+            dispatch({
+              type: GET_ERRORS,
+              payload: err.response.data
+            })
+          );
+         
+      
+  
+  }

@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { PropTypes } from 'prop-types'
 import { connect } from 'react-redux';
-import { addNewMovie } from '../../actions/movieActions'
+import { getMoviebyName } from '../../actions/movieActions'
 import classnames from "classnames";
 
 
@@ -23,15 +23,9 @@ class EditMovie extends Component {
         this.setState({ [e.target.id]: e.target.value });
     };
 
-
-
     onSubmit(e) {
         e.preventDefault();
-
-        const movieData = {
-            name: this.getMovieName.value,
-           }
-
+        this.props.getMoviebyName( this.getMovieName.value);
 
     }
 
@@ -52,7 +46,7 @@ class EditMovie extends Component {
                     <div className="landing-copy col s12 center-align">
                         <h5 align="center">Edit Movies</h5>
 
-                        <div style={{ marginTop: 0 , width: 450}}>
+                        <div style={{ marginTop: 0, width: 450 }}>
                             <form className="row" onSubmit={this.onSubmit}>
                                 <div className="input-field col s12">
                                     <label for="name">Movie Name</label>
@@ -67,7 +61,7 @@ class EditMovie extends Component {
                                         {errors.name}
                                     </span>
                                 </div>
-                                
+
                                 <div className="input-field col s12">
                                     <input type="submit" value="Search" className="btn btn-primary" />
                                 </div>
@@ -82,6 +76,7 @@ class EditMovie extends Component {
 }
 
 EditMovie.propTypes = {
+    getMoviebyName: PropTypes.object.isRequired,
     errors: PropTypes.object.isRequired
 
 };
@@ -89,4 +84,4 @@ const mapStateToProps = state => ({
     errors: state.errors
 });
 
-export default connect(mapStateToProps, {  })(EditMovie);
+export default connect(mapStateToProps, { getMoviebyName })(EditMovie);

@@ -1,4 +1,4 @@
-import {GET_ALL_MOVIES, ADD_NEW_MOVIE } from "../actions/types";
+import {GET_ALL_MOVIES, ADD_NEW_MOVIE, GET_MOVIE_BY_NAME } from "../actions/types";
 
 const initialState = {
     movies: {},
@@ -13,6 +13,11 @@ export default function(state = initialState, action) {
         movies: action.payload
       };
       case ADD_NEW_MOVIE:
+      return{
+        ...state,
+        movies: action.payload
+      }
+      case GET_MOVIE_BY_NAME:
       return{
         ...state,
         movies: action.payload
