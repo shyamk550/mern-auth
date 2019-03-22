@@ -53,16 +53,10 @@ console.log("movies fetching....")
 
 
 
-export const getMoviebyName = movieData => dispatch => {
+export const getMoviebyName = name => dispatch => {
   console.log("movies fetching....")
-  console.log(movieData)
 
-          fetch("/api/movies/getMovieByName", {
-
-            method: 'GET', 
-            body: JSON.stringify({name: movieData}), 
-
-          })
+          fetch("/api/movies/getMovieByName/"+name)
           .then(res =>res.json())
           .then(movie => {
             dispatch({

@@ -45,10 +45,7 @@ class EditMovie extends Component {
     }
     render() {
         console.log(">>>>>>>>>>>>>>>>>>>>>");
-        console.log(this.props);
-
-        const allmovies = Array.from(this.props);
-        console.log(allmovies)
+        console.log(this.props.movie);
     //     const movieItems = allmovies.map(movies => (
 
     //     <div key={movies.id}>
@@ -60,13 +57,8 @@ class EditMovie extends Component {
     // ))
     
 
-        const {movie}= this.props.movie;
+        const {moviedetails}= this.props.movie;
 
-        const { errors } = this.state;
-        console.log("++++++++++++++++++++++");
-
-        console.log(errors)
-        console.log(movie);
         return (
             <div className="container valign-wrapper">
                 <div className="row">
@@ -79,13 +71,13 @@ class EditMovie extends Component {
                                     <label for="name">Movie Name</label>
                                     <input id="name" type="text"
                                         ref={(input) => this.getMovieName = input}
-                                        error={errors.name}
-                                        className={classnames("", {
-                                            invalid: errors.name
-                                        })}
+                                     //   error={errors.name}
+                                        // className={classnames("", {
+                                        //     invalid: errors.name
+                                        // })}
                                         onChange={this.onChange} />
                                     <span className="red-text left">
-                                        {errors.name}
+                                        {/* {errors.name} */}
                                     </span>
                                 </div>
 
@@ -94,10 +86,12 @@ class EditMovie extends Component {
                                 </div>
                             </form>
                         </div>
-
+{/* 
                         <div>
-                            {movie}
-                        </div>
+                            {moviedetails.genre}<br/>
+                            {moviedetails.story}<br/>
+
+                        </div> */}
                     </div>
                 </div>
 

@@ -26,20 +26,19 @@ router.get('/getmovies',(req, res) =>{
   });
 })
   
-router.get('/getMovieByName', (req, res) =>{
+router.get('/getMovieByName/:name', (req, res) =>{
   var movie = req.body;
   console.log(">>>>>>>>>>>>");
   console.log(req.params);
-  console.log('req.body: ' + JSON.stringify(movie));
  // if(req.body.name) movieName = req.body.name;
  
-const { errors, isValid } = validateMoviesSearch( req.body);
+const { errors, isValid } = validateMoviesSearch( req.params);
 console.log(errors)
 if (!isValid) {
   return res.status(400).json(errors);
 }
 
-      Movies.findOne({ name: req.body.name }, function(err, movieData){
+      Movies.findOne({ name: req.params.name }, function(err, movieData){
           if (err) throw err;
           if(!movieData){
             return res.status(400).json({ name: "Movie Not found" });
